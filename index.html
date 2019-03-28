@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Formulario PHP</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <form action="form.php" method="GET" id="form1">
+        <fieldset id="usuario">
+          <label for="iNome">Nome: </label
+          ><input type="text" name="nome" id="iNome" /> <br />
+          <label for="iNome">Data de Nascimento: </label
+          ><input type="date" name="nascimento" id="iNascimento" /><br />
+        </fieldset>
+
+        <fieldset id="sexo">
+          <legend>Sexo</legend>
+          <label for="masc">Masculino</label>
+          <input type="radio" name="sexo" value="masculino" id="masc" /><br />
+          <label for="fem">Feminino</label>
+          <input type="radio" name="sexo" value="feminino" id="fem" /><br />
+        </fieldset>
+
+        <fieldset id="endereco">
+          <legend>Endereço</legend>
+          <label for="iLogradouro">Logradouro:</label>
+          <input type="text" name="logradouro" id="iLogradouro" /><br />
+          <label for="iBairro">Bairro:</label>
+          <input type="text" name="bairro" id="iBairro" /><br />
+          <label for="iUf">UF:</label>
+          <select name="uf" id="iUf">
+            <option value="df">DF</option>
+            <option value="go">GO</option>
+            <option value="mt">MT</option>
+            <option value="ms">MS</option>
+          </select>
+        </fieldset>
+        <fieldset id="contato">
+          <label for="iEmail">E-mail:</label>
+          <input type="email" name="email" id="iEmail" /><br />
+        </fieldset>
+        </fieldset>
+
+        <fieldset id="iBtn">
+          <input type="submit" value="Enviar" name="bt_enviar" class="btn" />
+          <input type="reset" value="Limpar" class="btn" />
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
