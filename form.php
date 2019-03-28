@@ -31,6 +31,7 @@ function ValidaSexo($sexo)
     //melhorar esse codigo
   } else if ($sexo !== "masculino" xor "feminino") {
     echo "<p>Informe um valor valido para sexo</p>";
+    echo var_dump($sexo);
   }
 }
 
@@ -51,7 +52,7 @@ function ValidaData($dat)
   }
 }
 
-echo var_dump($sexo);
+
 
 ValidaEmail($email);
 ValidaData($data);
