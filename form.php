@@ -29,8 +29,11 @@ function ValidaSexo($sexo)
     $sexoErr = "sexo is required";
     echo "<p>$sexoErr</p>";
     //melhorar esse codigo
-  } else if ($sexo !== "masculino" xor "feminino") {
+  } else if ($sexo !== "masculino" || "feminino") {
     echo "<p>Informe um valor valido para sexo</p>";
+    echo var_dump($sexo);
+  } else {
+    echo "<p>Sexo Valido</p>";
     echo var_dump($sexo);
   }
 }
