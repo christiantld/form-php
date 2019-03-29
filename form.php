@@ -56,14 +56,6 @@ function ValidaData($dat)
   }
 }
 
-
-
-
-
-
-
-
-
 function ValidateAll($email, $data, $sexo)
 {
   if (
