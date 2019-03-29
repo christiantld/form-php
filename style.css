@@ -3,83 +3,20 @@ html,
 body,
 div,
 span,
-applet,
-object,
-iframe,
 h1,
 h2,
-h3,
-h4,
-h5,
-h6,
 p,
-blockquote,
-pre,
 a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
 em,
 img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
 strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
 ol,
 ul,
 li,
 fieldset,
 form,
 label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+legend {
   margin: 0;
   padding: 0;
   border: 0;
@@ -88,31 +25,15 @@ video {
   vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
 body {
   line-height: 1;
 }
 
 /* FIM RESET */
 
-body {
+.bg-img {
   background-color: rgb(253, 80, 103);
-  background-image: url("14885.jpg"),
-    linear-gradient(100deg, rgba(253, 80, 103, 0.5), rgba(253, 80, 103, 0.5));
+  background-image: url("14885.jpg");
   background-size: 300px auto;
   background-position: center;
   background-repeat: repeat;
@@ -122,14 +43,29 @@ body {
 .container {
   display: flex;
   height: 100vh;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-form {
-  border: solid rgba(245, 245, 245, 0.288) 2px;
+p {
+  border: solid rgba(245, 245, 245, 0.288) 3px;
   border-radius: 5px;
-  background-color: rgb(255, 96, 117);
+  background-color: rgba(255, 96, 117, 0.87);
+  padding: 10px;
+  color: whitesmoke;
+  z-index: 1;
+  margin: 10px;
+}
+
+.error:first-child {
+  visibility: hidden;
+}
+
+form {
+  border: solid rgba(245, 245, 245, 0.288) 3px;
+  border-radius: 5px;
+  background-color: rgba(255, 96, 117, 0.87);
   padding: 10px;
   height: 500px;
   width: 330px;
@@ -138,6 +74,7 @@ form {
   flex-wrap: wrap;
   justify-content: center;
   display: hidden;
+  z-index: 1;
 }
 
 #sexo {
@@ -195,4 +132,16 @@ select {
 
 .btn:first-of-type {
   margin-right: 55px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  height: auto;
+  padding: 2px 6px;
+  border: solid rgb(253, 80, 103) 1.5px;
+  border-radius: 10px;
+  color: rgb(253, 80, 103);
+  background-color: ghostwhite;
+  font-size: 1rem;
 }

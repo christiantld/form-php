@@ -1,8 +1,11 @@
 <?php
-
 $email = test_input($_GET["email"]);
 $sexo = test_input($_GET["sexo"]);
-$data  = test_input($_GET["nascimento"]);
+$data  = test_input($_GET["nascimento"]); // YYYY/MM/DD
+$nome = test_input($_GET["nome"]);
+$logradouro = test_input($_GET["logradouro"]);
+$bairro = test_input($_GET["bairro"]);
+$enviar = test_input($_GET["bt_enviar"]);
 
 function test_input($data)
 {
@@ -15,49 +18,87 @@ function test_input($data)
 function ValidaEmail($email)
 {
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $emailErr = "Formato de E-mail Invalido";
-    echo "<p>$emailErr</p>";
+    echo "<p class = \"error\">Formato de E-mail Inválido</p>";
   } else {
-    echo "<p>E-mail Valido</p>";
+    return true;
   }
 }
-
 
 function ValidaSexo($sexo)
 {
   if (empty($sexo)) {
-    $sexoErr = "sexo is required";
-    echo "<p>$sexoErr</p>";
+    echo "<p class = \"error\">Preencha o Campo Sexo</p>";
     //melhorar esse codigo
-  } else if ($sexo !== "masculino" || "feminino") {
-    echo "<p>Informe um valor valido para sexo</p>";
-    echo var_dump($sexo);
+  } else if ($sexo == "masculino") {
+    return true;
+  } else if ($sexo == "feminino") {
+    return true;
   } else {
-    echo "<p>Sexo Valido</p>";
-    echo var_dump($sexo);
+    echo "<p class = \"error\">Sexo inválido</p>";
   }
 }
 
-
-
+//OK
 function ValidaData($dat)
 {
-  $data = explode("-", "$dat");
-  $y = $data[0];
-  $d = $data[1];
-  $m = $data[2];
+  $today = getdate();
+  $date = explode("/", "$dat");
+  $d = $date[0];
+  $m = $date[1];
+  $y = $date[2];
 
-  $res = checkdate($m, $d, $y);
-  if ($res == 1) {
-    echo "<p>Data Valida</p>";
+  if ($y > $today["year"]) {
+    echo "<p class = \"error\">Data Inválida, verifique o Ano</p>";
+  } else if (checkdate($m, $d, $y)) {
+    return true;
   } else {
-    echo "<p>data inválida!</p>";
+    echo "<p class = \"error\">Data Inválida</p>";
   }
 }
 
 
 
-ValidaEmail($email);
-ValidaData($data);
-ValidaSexo($sexo);
- 
+
+
+
+
+
+
+function ValidateAll($email, $data, $sexo)
+{
+  if (
+    ValidaEmail($email) &&
+    ValidaData($data) &&
+    ValidaSexo($sexo)
+  ) {
+    echo "<p>Cadastro Efetuado com Sucesso</p>";
+  } else {
+    //Esta repetindo a primeira funcao quando falsa, nao sei porque, escondi com css
+    ValidaEmail($email);
+    ValidaData($data);
+    ValidaSexo($sexo);
+  }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Erro</title>
+  <link rel="stylesheet" media="all" href="style.css" type="text/css" />
+</head>
+
+<body>
+  <div class="container bg-img">
+    <?php
+        ValidateAll($email, $data, $sexo);
+        ?>
+    <a href="index.html">Voltar</a>
+  </div>
+</body>
+
+</ht ml>
